@@ -1,4 +1,4 @@
-import configs from "../../configs";
+import configs from "../../../configs";
 import mongoose from "mongoose";
 let database: mongoose.Connection;
 export const connect = () => {

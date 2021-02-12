@@ -1,7 +1,7 @@
 import express from "express";
 import routers from "./routers";
 import configs from "./configs";
-import { connect } from "./services/dataAccess/mongoose";
+import { connect } from "./services/dataAccess/mongoDB/mongoose";
 import bodyParser from "body-parser";
 
 const app = express();
