@@ -1,8 +1,15 @@
-import { RegisterReq } from "../Abstracts/types";
+import * as bcrypt from "../../../services/bcrypt";
+import { RegisterReq, User } from "../Abstracts/types";
 import { repo } from "../repo";
+import { emailVerification } from "./emailVerification";
 export const register = async (req: RegisterReq) => {
   try {
-    const result = await repo.add(req);
+    req.password = await bcrypt.hash(req.password)
+    const result: User = await repo.add(req);
+    console.log({result})
+    if(result) {
+        emailVerification(result.email)
+    }
     return result;
   } catch (error) {
     throw error;

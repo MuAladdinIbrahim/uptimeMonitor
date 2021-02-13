@@ -14,7 +14,7 @@ export const repo = {
   confirmEmail: async (email: string) => {
     return await User.findOneAndUpdate(
       { email },
-      { isConfirmed: true },
+      { isVerified: true },
       { new: true }
     )
       .then((updatedUser: any) => updatedUser)
