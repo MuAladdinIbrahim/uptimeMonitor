@@ -16,9 +16,9 @@ const initNodeMailerService = () => {
 };
 
 export const send = async (to: string, link: string) => {
-    // if (!transporter) {
-    //   transporter = initNodeMailerService();
-    // }
+    if (!transporter) {
+      transporter = initNodeMailerService();
+    }
   console.log(count);
   try {
     console.log("hi1");

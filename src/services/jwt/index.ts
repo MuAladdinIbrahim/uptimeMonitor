@@ -7,3 +7,7 @@ export const generateToken = (
 ) => {
   return jwt.sign(payload, secret, { expiresIn: expiry });
 };
+
+export const decodeToken = (token: string, secret: string) => {
+  return jwt.verify(token, secret)
+}
