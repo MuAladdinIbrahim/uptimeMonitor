@@ -16,5 +16,6 @@ export = {
   NodeMailerPort: 2525,
   NodeMailerUser: "0f8c74b70dd45d",
   NodeMailerPass: "0c06daaaf665b2",
-  EMAIL_TOKEN: "secretkeytogenerateverificationcode"
+  EMAIL_TOKEN: "secretkeytogenerateverificationcode",
+  AUTH_TOKEN: "secretkeytogenerateauthtoken"
 };

@@ -8,3 +8,11 @@ export const validateRegisterReq = (reqBody: any) => {
   });
   return registerReqSchema.validate(reqBody);
 };
+export const validateLoginReq = (reqBody: any) => {
+  const registerReqSchema = Joi.object({
+    email: Joi.string().optional(),
+    username: Joi.string().optional(),
+    password: Joi.string().required(),
+  }).or('email','username')
+  return registerReqSchema.validate(reqBody);
+};
