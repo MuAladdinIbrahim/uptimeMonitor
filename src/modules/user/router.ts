@@ -5,8 +5,9 @@ import { verify } from "./core/emailVerification";
 import {
   validateRegisterReq,
   validateLoginReq,
-} from "./validation/ValidatehttpReq";
+} from "./validation/validatehttpReq";
 import { login } from "./core/login";
+import { isLoggedIn } from "./middleware/isLoggedIn";
 const router = Router();
 
 router.post("/register", async ({ body }, res) => {

@@ -12,7 +12,7 @@ export const login = async (req: LoginReq): Promise<string | boolean> => {
       savedUser.password
     );
     if (isSamePassword)
-      return generateToken({ username: req.username }, configs.AUTH_TOKEN);
+      return generateToken({ username: savedUser.username }, configs.AUTH_TOKEN);
     return false;
   } catch (error) {
     throw error;
