@@ -32,9 +32,10 @@ const UserSchema: Schema = new Schema(
       type: Boolean,
       default: false,
     },
-    checks: {
-      type: [String],
-    },
+    checks: [{
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "Check",
+    }],
   },
   schemaOptions
 );

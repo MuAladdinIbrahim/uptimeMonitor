@@ -9,6 +9,7 @@ export const isLoggedIn = async (req: any, res:any, next: any) => {
         const token = req.header("Authorization").replace("Bearer ", "");
         const decoded: any = decodeToken(token, configs.AUTH_TOKEN);
         const user = await repo.getOne({username: decoded.username})
+        req.body.user = user
         if(user) next()
         else res.status(400).json(error("User Not Found",400))
       } catch (err) {
