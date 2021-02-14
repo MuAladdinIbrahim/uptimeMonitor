@@ -1,10 +1,11 @@
 import Joi from "@hapi/joi";
+import { Protocol } from "../Abstract/enum";
 
 export const validateAddCheckReq = (check: any) => {
   const chckReqSchema = Joi.object({
     name: Joi.string().required(),
     url: Joi.string().required(),
-    protocol: Joi.string().required(),
+    protocol: Joi.string().valid(...Object.values(Protocol)).required(),
     path: Joi.string().optional(),
     port: Joi.number().optional(),
     webhook: Joi.string().optional(),

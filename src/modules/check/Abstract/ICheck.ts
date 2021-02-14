@@ -1,7 +1,10 @@
+import { CheckState, Protocol } from "./enum";
+
 export interface ICheck {
   name: string;
   url: string;
   protocol: Protocol;
+  state: CheckState;
   path?: string;
   port?: number;
   webhook?: string;
@@ -23,8 +26,3 @@ export interface ICheck {
   ignoreSSL?: boolean;
 }
 
-enum Protocol {
-  HTTP = "HTTP",
-  HTTPS = "HTTPS",
-  TCP = "TCP",
-}

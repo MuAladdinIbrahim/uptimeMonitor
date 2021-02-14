@@ -14,9 +14,17 @@ export const repo = {
   },
   getOne: async (criteria: any) => {
     return await Check.findOne(criteria)
-      .then((user: any) => user)
+      .then((check: any) => check)
       .catch((error: any) => {
-        console.log(`error in getting User frouser db ${error}`);
+        console.log(`error in getting check from db ${error}`);
+        throw error;
+      });
+  },
+  updateOne: async (criteria: any, updates: any) => {
+    return await Check.findOneAndUpdate(criteria, updates, { new: true })
+      .then((check: any) => check)
+      .catch((error: any) => {
+        console.log(`error in updating Check in db ${error}`);
         throw error;
       });
   },

@@ -1,4 +1,5 @@
 import mongoose, { Schema, Document } from "mongoose";
+import { CheckState, Protocol , CheckStatus} from "../../../../modules/check/Abstract/enum";
 
 const schemaOptions = {
   timestamps: true,
@@ -20,7 +21,18 @@ const CheckSchema: Schema = new Schema(
     },
     protocol: {
       type: String,
+      enum: Object.values(Protocol),
       required: true,
+    },
+    state: {
+      type: String,
+      enum: Object.values(CheckState),
+      default: CheckState.RUNNING,
+    },
+    status: {
+      type: String,
+      enum: Object.values(CheckStatus),
+      required: false,
     },
     path: {
       type: String,
