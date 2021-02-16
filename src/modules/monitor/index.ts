@@ -1,6 +1,11 @@
+import { Ping } from "../../lib/ping-monitor/ping";
 import { alerter } from "../alerter/";
 import { CheckStatus } from "../check/Abstract/enum";
 import { ICheck } from "../check/Abstract/ICheck";
+
+export const watch = (...checks: ICheck[]) => {
+  Ping(checks);
+};
 
 export const isUp = (check: ICheck, response: any, state: any) => {
   //update state, status and check info in database

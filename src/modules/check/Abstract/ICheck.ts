@@ -5,6 +5,7 @@ export interface ICheck {
   name: string;
   url: string;
   protocol: Protocol;
+  user: IUser;
   state: CheckState;
   path?: string;
   port?: number;
@@ -25,6 +26,5 @@ export interface ICheck {
   };
   tags?: string[];
   ignoreSSL?: boolean;
-  user?: IUser;
 }
 

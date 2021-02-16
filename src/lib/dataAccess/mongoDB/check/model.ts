@@ -1,5 +1,6 @@
 import mongoose, { Schema, Document } from "mongoose";
 import { CheckState, Protocol , CheckStatus} from "../../../../modules/check/Abstract/enum";
+import { ICheck } from "../../../../modules/check/Abstract/ICheck";
 
 const schemaOptions = {
   timestamps: true,
@@ -86,5 +87,5 @@ const CheckSchema: Schema = new Schema(
   },
   schemaOptions
 );
-
-export default mongoose.model("Check", CheckSchema);
+interface CheckModel extends ICheck, Document {}
+export default mongoose.model<CheckModel>("Check", CheckSchema);
