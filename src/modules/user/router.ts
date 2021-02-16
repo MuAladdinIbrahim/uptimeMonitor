@@ -53,4 +53,8 @@ router.post("/login", async ({ body }, res) => {
   }
 });
 
+router.get('/test',isLoggedIn, (req, res) => {
+  res.send("hi")
+})
+
 export default { path: "/user", router };

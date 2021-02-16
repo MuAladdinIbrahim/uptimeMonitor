@@ -27,7 +27,7 @@ const CheckSchema: Schema = new Schema(
     state: {
       type: String,
       enum: Object.values(CheckState),
-      default: CheckState.RUNNING,
+      default: CheckState.PENDING,
     },
     status: {
       type: String,
