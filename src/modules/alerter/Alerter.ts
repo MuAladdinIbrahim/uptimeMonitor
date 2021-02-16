@@ -1,7 +1,6 @@
-import { IUser } from "../../lib/dataAccess/mongoDB/user/model";
 import { CheckStatus } from "../check/Abstract/enum";
 import { ICheck } from "../check/Abstract/ICheck";
-import { IChannel } from "./channel/IChannel";
+import { IChannel } from "../channel/Abstract/IChannel";
 
 export class Alerter {
   private static alerter: Alerter;
@@ -15,7 +14,9 @@ export class Alerter {
   addChannel(channel: IChannel) {}
   removeChannel(channel: IChannel) {}
   alertAbout(check: ICheck,state:any,status: CheckStatus) {
+    //TODO logic here 
+    // 1) send data to each channel and each channel is responsible for formatting
+    //    the message and send it to user
     this.channels.forEach((channel: IChannel) => {});
   }
 }
-

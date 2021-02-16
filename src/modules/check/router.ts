@@ -34,7 +34,7 @@ router.put("/", isLoggedIn, async ({ body: { checkId, updates } }, res) => {
     if (error) {
       res.status(422).json(validation(error?.details[0]?.message || error));
     }
-    const result = await editCheck(reqBody.checkId, reqBody.updates);
+    const result = await editCheck({ _id: reqBody.checkId }, reqBody.updates);
     result
       ? res.status(200).json(success("updated", result, 200))
       : res.status(409).json(success("can't process request now", result, 409));

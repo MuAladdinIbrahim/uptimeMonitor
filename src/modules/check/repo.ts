@@ -20,8 +20,16 @@ export const repo = {
         throw error;
       });
   },
-  updateOne: async (criteria: any, updates: any) => {
-    return await Check.findOneAndUpdate(criteria, updates, { new: true })
+  getAll: async (criteria: any) => {
+    return await Check.find(criteria)
+      .then((checks: any) => checks)
+      .catch((error: any) => {
+        console.log(`error in getting checks from db ${error}`);
+        throw error;
+      });
+  },
+  updateOne: async (check: any, updates: any) => {
+    return await Check.findOneAndUpdate({_id: check._id}, updates, { new: true })
       .then((check: any) => check)
       .catch((error: any) => {
         console.log(`error in updating Check in db ${error}`);

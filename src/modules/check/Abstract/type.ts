@@ -1,4 +1,4 @@
-import { Protocol } from "./enum";
+import { CheckState, Protocol } from "./enum";
 
 export type UpdateCheckReq = {
     name?: string;
@@ -7,6 +7,7 @@ export type UpdateCheckReq = {
     path?: string;
     port?: number;
     webhook?: string;
+    state?: CheckState;
     timeout?: number;
     interval?: number;
     threshold?: number;
