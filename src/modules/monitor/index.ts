@@ -1,26 +1,26 @@
 import { Ping } from "../../lib/ping-monitor/ping";
-import { alerter } from "../alerter/";
-import { CheckStatus } from "../check/Abstract/enum";
 import { ICheck } from "../check/Abstract/ICheck";
+import { isDownHandler } from "./handler/isDownHandler";
+import { isErrorHandler } from "./handler/isErrorHandler";
+import { isStopHandler } from "./handler/isStopHandler";
+import { isTimeoutHandler } from "./handler/isTimeoutHandler";
+import { isUpHandler } from "./handler/isUpHandler";
 
 export const watch = (...checks: ICheck[]) => {
   Ping(checks);
 };
-
 export const isUp = (check: ICheck, response: any, state: any) => {
-  //update state, status and check info in database
-  // send to alerter the check and the action
-  alerter.alertAbout(check, state, CheckStatus.UP);
+  isUpHandler(check, response, state);
 };
 export const isDown = (check: ICheck, response: any, state: any) => {
-  alerter.alertAbout(check, state, CheckStatus.UP);
+  isDownHandler(check, response, state);
 };
 export const isStop = (check: ICheck, response: any, state: any) => {
-  alerter.alertAbout(check, state, CheckStatus.UP);
+  isStopHandler(check, response, state);
 };
 export const isError = (check: ICheck, response: any, state: any) => {
-  alerter.alertAbout(check, state, CheckStatus.UP);
+  isErrorHandler(check, response, state);
 };
 export const isTimeout = (check: ICheck, response: any, state: any) => {
-  alerter.alertAbout(check, state, CheckStatus.UP);
+  isTimeoutHandler(check, response, state);
 };

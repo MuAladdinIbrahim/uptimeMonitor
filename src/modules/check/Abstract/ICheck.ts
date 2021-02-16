@@ -1,5 +1,5 @@
 import { IUser } from "../../../lib/dataAccess/mongoDB/user/model";
-import { CheckState, Protocol } from "./enum";
+import { CheckState, CheckStatus, Protocol } from "./enum";
 
 export interface ICheck {
   name: string;
@@ -7,6 +7,7 @@ export interface ICheck {
   protocol: Protocol;
   user: IUser;
   state: CheckState;
+  status: CheckStatus;
   path?: string;
   port?: number;
   webhook?: string;

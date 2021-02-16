@@ -1,7 +1,8 @@
 import { CheckStatus } from "../Abstract/enum";
-import { UpdateCheckReq } from "../Abstract/type";
 import { repo } from "../repo";
 
-export const editCheck = async (check: any,updates: UpdateCheckReq) => {
-  return await repo.updateOne(check, {status: CheckStatus.UP}); //TODO
+export const changeStatus = async (check: any, status: CheckStatus) => {
+  return await repo.updateOne({ _id: check._id }, { status }).catch((err) => {
+    throw err;
+  });
 };
