@@ -1,4 +1,4 @@
-import * as bcrypt from "../../../services/bcrypt";
+import * as bcrypt from "../../../lib/bcrypt";
 import { RegisterReq, User } from "../Abstracts/types";
 import { repo } from "../repo";
 import { emailVerification } from "./emailVerification";

@@ -1,4 +1,4 @@
-import { IUser } from "../../../services/dataAccess/mongoDB/user/model";
+import { IUser } from "../../../lib/dataAccess/mongoDB/user/model";
 import { CheckState, Protocol } from "./enum";
 
 export interface ICheck {

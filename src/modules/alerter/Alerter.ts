@@ -1,4 +1,5 @@
-import { IUser } from "../../services/dataAccess/mongoDB/user/model";
+import { IUser } from "../../lib/dataAccess/mongoDB/user/model";
+import { CheckStatus } from "../check/Abstract/enum";
 import { ICheck } from "../check/Abstract/ICheck";
 import { IChannel } from "./channel/IChannel";
 
@@ -13,7 +14,7 @@ export class Alerter {
   }
   addChannel(channel: IChannel) {}
   removeChannel(channel: IChannel) {}
-  alertAbout(check: ICheck) {
+  alertAbout(check: ICheck,state:any,status: CheckStatus) {
     this.channels.forEach((channel: IChannel) => {});
   }
 }

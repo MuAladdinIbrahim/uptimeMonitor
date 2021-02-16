@@ -1,6 +1,6 @@
 import configs from "../../../configs";
 import { error } from "../../../helpers/response";
-import { decodeToken } from "../../../services/jwt";
+import { decodeToken } from "../../../lib/jwt";
 import { repo } from "../repo";
 
 export const isLoggedIn = async (req: any, res:any, next: any) => {

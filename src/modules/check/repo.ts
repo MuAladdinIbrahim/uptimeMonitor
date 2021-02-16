@@ -1,5 +1,5 @@
-import Check from "../../services/dataAccess/mongoDB/check/model";
-import User from "../../services/dataAccess/mongoDB/user/model";
+import Check from "../../lib/dataAccess/mongoDB/check/model";
+import User from "../../lib/dataAccess/mongoDB/user/model";
 export const repo = {
   add: async (check: any, user: any) => {
     check.user = user._id;

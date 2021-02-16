@@ -1,6 +1,6 @@
 import configs from "../../../configs";
-import { compare } from "../../../services/bcrypt";
-import { generateToken } from "../../../services/jwt";
+import { compare } from "../../../lib/bcrypt";
+import { generateToken } from "../../../lib/jwt";
 import { LoginReq, User } from "../Abstracts/types";
 import { repo } from "../repo";
 export const login = async (req: LoginReq): Promise<string | boolean> => {

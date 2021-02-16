@@ -1,4 +1,4 @@
-import User from "../../services/dataAccess/mongoDB/user/model";
+import User from "../../lib/dataAccess/mongoDB/user/model";
 import { RegisterReq } from "./Abstracts/types";
 export const repo = {
   add: async (data: RegisterReq) => {

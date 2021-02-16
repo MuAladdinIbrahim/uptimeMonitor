@@ -1,6 +1,6 @@
 import configs from "../../../configs";
-import * as email from "../../../services/email";
-import { generateToken, decodeToken } from "../../../services/jwt";
+import * as email from "../../../lib/email";
+import { generateToken, decodeToken } from "../../../lib/jwt";
 import { repo } from "../repo";
 
 export const emailVerification = (userMail: string) => {
