@@ -16,3 +16,10 @@ export const validateLoginReq = (reqBody: any) => {
   }).or('email','username')
   return registerReqSchema.validate(reqBody);
 };
+export const validateGetReportReq = (reqBody: any) => {
+  const registerReqSchema = Joi.object({
+    email: Joi.string().optional(),
+    username: Joi.string().optional(),
+  }).or('email','username')
+  return registerReqSchema.validate(reqBody);
+};

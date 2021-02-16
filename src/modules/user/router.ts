@@ -7,7 +7,7 @@ import {
   validateLoginReq,
 } from "./validation/validatehttpReq";
 import { login } from "./core/login";
-import { isLoggedIn } from "./middleware/isLoggedIn";
+
 const router = Router();
 
 router.post("/register", async ({ body }, res) => {
@@ -53,8 +53,5 @@ router.post("/login", async ({ body }, res) => {
   }
 });
 
-router.get('/test',isLoggedIn, (req, res) => {
-  res.send("hi")
-})
 
 export default { path: "/user", router };
