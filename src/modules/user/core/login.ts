@@ -6,15 +6,25 @@ import { repo } from "../repo";
 export const login = async (req: LoginReq): Promise<string | boolean> => {
   try {
     let filter = req.email ? { email: req.email } : { username: req.username };
-    const savedUser: User = await repo.getOne(filter);
+    const savedUser: User = await repo
+      .getOne(filter)
+      .then((result) => result)
+      .catch((err) => {
+        throw err;
+      });
+    if (!savedUser) return false;
     const isSamePassword: boolean = await compare(
       req.password,
       savedUser.password
     );
     if (isSamePassword)
-      return generateToken({ username: savedUser.username }, configs.AUTH_TOKEN);
+      return generateToken(
+        { username: savedUser.username },
+        configs.AUTH_TOKEN
+      );
     return false;
   } catch (error) {
+    console.log(error);
     throw error;
   }
 };
